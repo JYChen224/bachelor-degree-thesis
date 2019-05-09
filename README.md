@@ -1,45 +1,31 @@
 # nuaathesis
-南京航空航天大学(非官方)本科生学位LaTeX模板
 
-[示例文件](https://github.com/jackwzh/nuaathesis/raw/master/sample.pdf)
+南京航空航天大学(非官方)学位论文 LaTeX 模板
+
+UNOFFICIAL LaTeX thesis template for Nanjing University of Aeronautics and Astronautics
 
 ## 特点
 
-* 模版开发遵照南航官方论文模版排版要求
-* 完美支持XeLaTeX进行编译
-* 支持Windows / Linux / macOS系统环境
+* 模版(尽力)遵照南航官方论文模版排版要求
+* 支持本科、硕士、博士学位论文
+* 支持中文，初步支持英文、日文
+* 使用 XeLaTeX 进行编译 (日文例外)
+* 支持 Windows / Linux / macOS 等系统环境
 
 ## 快速上手
 
-请使用XeLaTeX对论文进行编译，使用biber编译生成参考文献。
+1. 从 Release 页面下载与系统对应的压缩包，并解压到本地文件夹 (注意不要下载 Source code);
+2. 根据论文的语言，用编辑器打开 [demo_chs](demo_chs), [demo_en](demo_en) 或 [demo_ja](demo_ja) 文件夹 (里的主文件 `bachelor.tex` 或 `master.tex`);
+3. 将 LaTeX 编译方式修改为 latexmk，尝试编译论文;
+4. 如果遇到问题，建议阅读编译的文档本身，或者看一下根目录下的 [nuaathesis.pdf](nuaathesis.pdf).
 
-命令行方式1：
+## Quick Start
 
-```
-xelatex -no-pdf sample
-biber --debug sample
-xelatex sample
-xelatex sample # 此处需要运行两遍
-```
+1. Download zip/tar release (don't download Source code, unless you know how to compile them),
+2. Open [demo_en/bachelor.tex](demo_en/bachelor.tex) or [demo_en/master.tex](demo_en/master.tex) with LaTeX editor,
+3. Compile the file with latexmk,
+4. If any problems, check out the document itself (i.e.: demo_en/content) for FAQ.
 
-命令行方式2：
+---
 
-```
-latexmk -xelatex sample
-```
-
-GUI方式：
-
-请根据个人喜好选择TeXworks、TeXmaker、TeXStudio、Texpad(macOS)、Emacs、Atom等进行编辑和编译。
-
-## 目录结构
-
-`sample.tex`：主文件，此文件仅包含对模版和所有子文件的引用关系，建议实际使用时将文件名更改为论文名称。
-
-`chapter/`：存放具体各个章节的内容。
-
-`figure/`：被引用图片的文件夹，其中nuaa.png为南航图标，不可删除。
-
-`bib/`：存放引用文献库，bib文件可使用常见的文献管理工具（EndNote、Mendeley、Papers等）进行生成。
-
-`nuaathesis.cfg` / `nuaathesis.cls`：模版文件，用户无需改动。
+Happy TeXing ;)
