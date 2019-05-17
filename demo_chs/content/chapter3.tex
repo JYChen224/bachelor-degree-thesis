@@ -54,7 +54,6 @@ U_{a}=\left(\frac{R_{a} f_{e}}{K_{a}}+K_{b}\right) \dot{\theta}_{m}
 \end{align}
 
 其中$r_p$为电机减速器输出轮的半径。假定作用力经鲍登线传输过程中无摩擦影响，则作用在外骨骼上的力矩由如下关系：
-
 \begin{align}
     \tau = F\cdot r_a
 \end{align}
@@ -226,8 +225,6 @@ PID控制器的三个部分各自具有不同的功能。比例项用来减小�
     \item PD控制+前馈控制+ ILC
 \end{enumerate}
 
-三种控制算法都需要进行参数整定以达到较好的控制效果。对PD控制器的参数本文使用曲线响应法进行整定，对于前馈控制和ILC的参数使用试错法。三种控制算法的最终参数如表3.2所示。
-
 \begin{table}[htb]
     \caption[控制参数]{三种控制算法的参数值}
     \begin{tabular}{lllll}
@@ -239,6 +236,10 @@ PID控制器的三个部分各自具有不同的功能。比例项用来减小�
     \end{tabular}
 \end{table}
 
+
+三种控制算法都需要进行参数整定以达到较好的控制效果。对PD控制器的参数本文使用曲线响应法进行整定，对于前馈控制和ILC的参数使用试错法。三种控制算法的最终参数如表3.2所示。
+
+
 力矩控制实验时，受试者穿戴外骨骼以4.5$m/s$的速度在跑步机上稳定的行走。其中无ILC的控制器在参数调整一分钟后开始记录数据，含有ILC的控制器在学习稳定后开始记录。每个控制器记录两分钟，约120步的数据。
 
 \begin{figure}[htb]
@@ -247,26 +248,27 @@ PID控制器的三个部分各自具有不同的功能。比例项用来减小�
     \label{fig:mark}
 \end{figure}
 \begin{figure}[!htb]
-    \includegraphics[width=15cm]{fig/f57.eps}
-    \caption{PD+前馈控制的力矩跟踪效果}
+    \includegraphics[width=17cm]{fig/f57.eps}
+    \caption{PD +前馈控制的力矩跟踪效果}
     \label{fig:mark}
 \end{figure}
+
 \begin{figure}[!htb]
-    \includegraphics[width=15cm]{fig/f58.eps}
+    \includegraphics[width=17cm]{fig/f58.eps}
     \caption{ILC的力矩跟踪效果}
     \label{fig:mark}
 \end{figure}
 \begin{figure}[!htb]
-    \includegraphics[width=15cm]{fig/f59.eps}
-    \caption{PD+前馈+ ILC的力矩跟踪效果}
+    \includegraphics[width=17cm]{fig/f59.eps}
+    \caption{PD +前馈+ ILC的力矩跟踪效果}
     \label{fig:mark}
 \end{figure}
 
 \begin{table}[htb]
     \caption[控制参数]{四种种控制器力矩追踪的均方根误差}
-    \begin{tabular}{llll}
+    \begin{tabular}{rrrr}
       \toprule
-        PD & PD+前馈 & ILC & PD+前馈+ ILC \\
+        PD & PD +前馈 & ILC控制 & PD +前馈+ ILC \\
       \midrule
         2.226 & 1.729 & 1.605 & 0.968 \\
       \bottomrule
@@ -279,4 +281,4 @@ PID控制器的三个部分各自具有不同的功能。比例项用来减小�
 
 \subsection{本章小结}
 
-本章介绍了外骨骼力矩控制的上层控制器与底层控制器，上层控制器用来产生期望力矩曲线，底层控制器实现对期望力矩曲线的跟踪。针对所提出三种控制算法，设计了四种不同组合形式的控制器，并对其进行了验证与对比。实验结果表明，综合三种算法的控制器具有较好的力矩追踪效果。
+本章研究外骨骼力矩控制方法。力矩控制由上层控制器与底层控制器组成，上层控制器用来产生期望力矩曲线，底层控制器实现对期望力矩曲线的跟踪。针对所提出三种控制算法，设计了四种不同组合形式的控制器，并对其进行了验证与对比。实验结果表明，综合三种算法的控制器具有较好的力矩追踪效果。
