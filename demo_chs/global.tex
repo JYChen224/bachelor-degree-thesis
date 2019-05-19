@@ -48,21 +48,27 @@
 
 % 摘要
 \begin{abstract}
-本文介绍如何使用\nuaathesis{} 文档类撰写南京航空航天大学学位论文。
+  外骨骼是一种用来提高人体机能的可穿戴设备，在军事作战、医疗康复等领域具有重要意义。提高人机交互的舒适性与安全性，为当前外骨骼领域的研究热点。本文研究对象为一种踝关节式外骨骼，在现有机械结构的基础上，对外骨骼传感系统、力矩控制方法、人在环中优化进行了研究。
 
-首先介绍如何获取并编译本文档，然后展示论文部件的实例，最后列举部分常用宏包的使用方法。
+  可靠、准确、稳定的人机交互数据对外骨骼而言至关重要。本文首先搭建了外骨骼的传感系统。针对所研究的踝关节式外骨骼，使用应变片测量外骨骼对人体施加的力矩，通过足底开关和惯性测量单元分析人体步态运动信息，通过EMG信号测量肌肉的激活水平。
+
+  在传感系统的基础上，本文对外骨骼的力矩控制方法进行了研究。力矩控制由上层控制器与底层控制器组成，上层控制器用来产生期望力矩曲线，底层控制器实现对期望力矩曲线的跟踪。对于上层控制器，本文采用基于时间的直接力矩控制，并通过三次函数插值得到期望力矩曲线。针对底层控制器，本文提出了三种控制算法，设计了四种不同组合的控制器，通过实验发现融合三种控制算法的控制器具有较好的力矩跟踪效果。
+
+  最后，本文研究了人在环中的参数优化方法。针对最佳助力模式因人而异的问题，本文以穿戴者的肌肉激活水平为目标函数，使用贝叶斯优化外搜寻最佳助力参数。实验表明，外骨骼系统能够在五分钟内寻找到最佳助力参数。在最佳助力参数下，受试者肌肉激活度平均下降12.2\%。
+
 \end{abstract}
-\keywords{学位论文, 模板, \nuaathesis}
+\keywords{外骨骼, 力矩控制, 人在环中优化}
 
 \begin{abstractEn}
-This document introduces \nuaathesis, the \LaTeX{} document class for NUAA Thesis.
+  Exoskeletons are wearable device used to enhance human mobility,which are significant in military, medical rehabilitation and many other fields.Improving the comfort and safety during human-machine interaction has become a hotspot in exoskeleton research.The research object of this paper is an ankle type exoskeleton.Based on the existing mechanical structure of an ankle exoskeleton,we study the sensing system,torque control method and human-in-loop optimization.
 
-First, we show how to get the source code and compile this document.
-Then we provide snippets for figures, tables, equations, etc.
-Finally we enforce some usage patterns.
+  Accurate and reliable sensor information is critical for exoskeleton.In this paper,we first develop a sensing system.The torque exerted on exoskeleton was measured by strain gauge,human gait information was analyzed by plantar switch,and muscle activation level was measured by EMG signal.
+
+  Based on the sensing system,we study torque control method,which consists of upper controller and lower controller.The upper controller is used to generate desired torque curve,and the lower controller is used for tracking the desired torque curve.This paper adopts the direct torque control based on time,and obtains the desired torque curve by cubic spline interpolation.We proposes three control algorithms and design four different combinations of lower controller.Through experiments,we found that the controller contains all three algorithms has better torque tracking performance.
+
+  Finally,we study human-in-loop optimization.We find that optimal assistance mode varies from person to person,which can be searched by optimization method.In the paper，the target function is human muscle activation level,and Bayesian Optimization was chosen to search optimal assistance.During five experiments,the exoskeleton system successfully searched the optimal assistance mode in five minutes.Under optimal assistance parameters,the muscle activation level of human subject decreased by 12.2\% on average.
 \end{abstractEn}
-\keywordsEn{NUAA thesis, document class, space is accepted here}
-
+\keywordsEn{exoskeleton, torque control, human in loop optimization}
 
 % 请按自己的论文排版需求，随意修改以下全局设置
 
