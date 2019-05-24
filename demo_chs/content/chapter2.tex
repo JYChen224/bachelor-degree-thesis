@@ -1,7 +1,6 @@
 \chapter{外骨骼数据采集与步态分析系统}
 
 本文所研究的踝关节外骨骼解构如图2.1所示。外骨骼分为小腿框架和足部框架，可以在矢状面上以踝关节为轴进行转动，电机通过鲍登线和末端弹性驱动与外骨骼相连，并控制关节进行拓屈运动。
-
 \begin{figure}[htb]
     \includegraphics[width=12cm]{fig/f19.jpg}
     \caption{踝关节外骨骼的数据采集系统}
@@ -15,7 +14,6 @@
 MicroLabBox是由dSPACE公司开发的一套基于MATLAB/Simulink的快速原型控制器，它可以方便的与Matlab/Simulink进行连接，实现快速原型控制（RCP）或硬件在环仿真（HIL）。MicroLabBox使用Simulink进行控制算法的快速开发、代码生成与测试调试，具有强实时性、可靠性高、扩充性好的特点，目前已广泛应用于汽车、机器人、航空航天等领域。
 
 \subsection{MicroLabBox的硬件平台}
-
 \begin{figure}[htb]
     \includegraphics[width=8cm]{fig/f21.jpeg}
     \caption{dSPACE的实时目标机MicroLabBox}
@@ -32,7 +30,6 @@ MicroLabBox与Simulink的连接是通过实时接口RTI来实现的，它可以�
 （2）ControlDesk
 
 ControlDesk是dSAPCE公司开发的一种图形化的人机交互软件，能够提供虚拟示波器、虚拟按钮、虚拟表盘等功能(图2.2)。根据ControlDesk提供的各种工具，用户可以快速设计出适合项目的可视化界面，方便的对程序中的变量进行监控、修改参数、记录数据。
-
 \begin{figure}[htb]
     \includegraphics[width=14cm]{fig/f22.jpg}
     \caption{dSPACE的实时目标机MicroLabBox}
@@ -42,55 +39,49 @@ ControlDesk是dSAPCE公司开发的一种图形化的人机交互软件，能够
 由于MicroLabBox可以借助Simulink以模块化的方式进行开发，并可以利用ControlDesk快速设计出对应的上位机界面，因此本文工作将以MicroLabBox为核心，进行数据采集、处理与外骨骼控制。
 
 \section{外骨骼力矩测量}
-
 \begin{figure}[htb]
     \includegraphics[width=14cm]{fig/f23.jpg}
     \caption{外骨骼结构与受力}
     \label{fig:mark}
 \end{figure}
 
-为了现实外骨骼的力矩控制，必须要对人机之间的交互力矩加以测量。外骨骼的结构与受力如图2.4所示。当电机通过鲍登线和SEA对外骨骼施加作用力$F1$时，由材料力学可知外骨骼的钛合金悬臂会在拉力的作用下发生变形(图2.5-a)。通过应变片测量出钛合金悬臂的变形程度，即可得到电机施加的驱动力矩。
-
+为了现实外骨骼的力矩控制，必须要对人机之间的交互力矩加以测量。外骨骼的结构与受力如图2.4所示。当电机通过鲍登线和SEA对外骨骼施加作用力$F1$时，由材料力学可知外骨骼的钛合金悬臂会在拉力的作用下发生变形(图2.5-a)。其中钛合金悬臂的上表面会发生压应变，下表面会发生拉应变。通过应变片测量出钛合金悬臂应变大小，即可得到电机施加的驱动力矩。
 \begin{figure}[htb]
     \subfloat[外骨骼悬臂在拉力作用下发生变形]{\includegraphics[width=7.5cm]{fig/f24.jpg}}\quad
     \subfloat[应变电阻的安装位置]{\includegraphics[width=7cm]{fig/f25.png}}
     \caption{外骨骼力矩测量原理}
     \label{fig:subfigss}
 \end{figure}
-
 \begin{figure}[htb]
     \includegraphics[width=8cm]{fig/f25.jpg}
     \caption{差动全桥应变测量电路}
     \label{fig:mark}
 \end{figure}
 
-这里使用全桥电路对应变进行测量，应变片的安装位置和测量电路如图2.5-b和图2.6所示。由图示电路可知：
+这里使用全桥电路对应变进行测量，桥臂上的四个应变电阻分别安装在图2.5-b所示位置。应变测量电路如图2.6所示。由电路可知：
 \begin{align}
-U_o = U\cdot \frac{(R_a + \Delta R_a)(R_b + \Delta R_b) - (R_c - \Delta R_c)(R_d - \Delta R_d)}{(R_a + \Delta R_a + R_d - \Delta R_d)(R_b + \Delta R_b + R_c - \Delta R_c)}
+U_o = U\cdot \frac{(R_a - \Delta R_a)(R_b - \Delta R_b) - (R_c + \Delta R_c)(R_d + \Delta R_d)}{(R_a - \Delta R_a + R_d + \Delta R_d)(R_b - \Delta R_b + R_c + \Delta R_c)}
 \end{align}
 
-设$R_a = R_b = R_c = R_d$，则：
+由于四片应变电阻型号相同，且对称的安装在金属悬臂上，近似认为$R_a = R_b = R_c = R_d,\Delta R_a = \Delta R_b = \Delta R_c = \Delta R_d$，则：
 \begin{align}
 U_o = U\cdot \frac{\Delta R_a R_b + \Delta R_b R_a + \Delta R_c R_d + \Delta R_d R_c}{(R_a + R_d)(R_b + R_c)}= U\cdot \frac{\Delta R_a}{R_a}
 \end{align}
 
-通过全桥电路得到的信号还需进行放大与校准。本文中采用OMEGA公司KFH-6-350-C1-11L1M2R型电阻应变片，并使用FUTEK-IAA100放大器对信号进行放大。之后经MicroLabBox模拟量输入接口进行采集，校准得到电压-力矩关系后用于力矩反馈控制。
-
+通过全桥电路得到的信号还需进行放大与校准。本文采用OMEGA公司KFH-6-350-C1-11L1M2R型电阻应变片，并使用FUTEK-IAA100放大器对信号进行放大。之后经MicroLabBox模拟量输入接口进行采集，校准得到电压-力矩关系后用于力矩反馈控制。
 \begin{figure}[htb]
-    \includegraphics[width=4cm]{fig/f28.jpg}\quad
+    \includegraphics[width=4cm]{fig/f28.jpg}\quad\quad
     \includegraphics[width=5cm]{fig/f28.png}
     \caption{KFH-6-350-C1-11L1M2R应变电阻(左) 与 FUTEK-IAA100信号放大器(右)}
     \label{fig:subfigss}
 \end{figure}
-
 \section{步态分析与步态周期测量}
 \subsection{人体下肢运动步态分析}
 
 为了能够对穿戴者提供有益的辅助作用，需要要对人体行走过程进行加以分析。步态周期是人体基本的运动之一，它定义为连续发生两次重复的步行事件之间的时间间隔。虽然可以选择任何事件来定义步态循环，但通常使用一只脚接触地面的瞬间(初始接触)作为开始。如果决定从右脚的初始着地开始，则到右脚再次接触地面为止，并如此循环。
-
 \begin{figure}[htb]
     \includegraphics[width=14cm]{fig/f29.jpg}
-    \caption{步态周期经历的过程}
+    \caption{步态周期经历的过程\cite{p44}}
     \label{fig:mark}
 \end{figure}
 
@@ -111,16 +102,15 @@ U_o = U\cdot \frac{\Delta R_a R_b + \Delta R_b R_a + \Delta R_c R_d + \Delta R_d
 
 \begin{figure}[htb]
     \includegraphics[width=15cm]{fig/f30.jpg}
-    \caption{步态周期的时序}
+    \caption{步态周期的时序\cite{p44}}
     \label{fig:mark}
 \end{figure}
 
-图2.9显示了在一个步态周期内，两只脚初始着地和脚趾离地的时序。当左脚还在地面上时，右脚开始接触地面进入支撑相，在左脚离开地面之间为两脚同时着地的双支撑阶段。之后左脚离开地面进入摆动相，右脚单支撑一段时间。接着左脚着地，进入另一段双支撑期。在每个步态周期中，有两个双支撑周期和两个单支撑周期。支撑相通常持续60\%的周期时间，摆动相约40\%，每段双支撑约10\%。然而，这是随行走速度变化而变化的，随着速度的增加，摆动相成比例地变长，站立相和双支撑变短。双支撑阶段的消失也标志着从步行转变为跑步。
+图2.9显示了在一个步态周期内，两只脚初始着地和脚趾离地的时序。当左脚还在地面上时，右脚开始接触地面进入支撑相，在左脚离开地面之间为两脚同时着地的双支撑阶段。之后左脚离开地面进入摆动相，右脚单支撑一段时间。接着左脚着地，进入另一段双支撑期。在每个步态周期中，有两个双支撑周期和两个单支撑周期。支撑相通常持续60\%的周期时间，摆动相约40\%，每段双支撑约10\%。然而，这是随行走速度变化而变化的。随着速度的增加，摆动相成比例地变长，站立相和双支撑变短。双支撑阶段的消失也标志着从步行转变为跑步。
 
 \subsection{基于足底开关的步态周期测量}
 
-由于在进行外骨骼力矩控制时，所施加的力矩曲线与步态周期具有密切关系。为了做到外骨骼与人体运动的同步，必须对步态周期进行准确的测量。本文采用足底开关来实现此功能。
-
+在进行外骨骼力矩控制时，所施加的力矩曲线与步态周期具有密切关系。为了做到外骨骼与人体运动的同步，必须对步态周期进行准确的测量。本文采用足底开关来实现此功能。
 \begin{figure}[!htb]
     \subfloat[足底开关]{\includegraphics[width=6cm]{fig/f31.jpg}}\quad
     \subfloat[步态检测状态机]{\includegraphics[width=8cm]{fig/f32.jpg}}
@@ -131,7 +121,6 @@ U_o = U\cdot \frac{\Delta R_a R_b + \Delta R_b R_a + \Delta R_c R_d + \Delta R_d
 如图2.10-a所示的薄膜式接触开关被粘贴在鞋内脚跟处。传感器的两端连接到MicroLabBox的数字引脚上，一端配置为高电平的数字输出，另一端配置为下拉状态的数字输入。当足底开关所在腿处于摆动阶段时，开关处于断开状态，输入信号为低电平；当其切换到支撑阶段时，开关连通使输入信号变为高电平。由此可以对摆动相和支撑相进行检测，每次摆动相切换到支撑相时，便进入到一个新的步态循环，两个上升沿之间的时间便为一个步态周期的时间。
 
 在实验中使用足底开关进行测量时会出现毛刺现象，通过信号高低电平来判断相位变化的方法不可靠。为此本文提出一种步态检测状态机，如图2.10-b所示，摆动相转换支撑相时，只通过高电平判断，这样可以准确得到步态周期的开始时刻。在支撑相转换到摆动相时，除了低电平外还要进行时间检测。只有当前步经历的时间大于前一步完整时间的60\%时，才由支撑相转换到摆动相。通过此方法能准确检测摆动相到支撑相的转换，同时可以消除信号毛刺的影响。
-
 \begin{figure}[htb]
     \includegraphics[width=16cm]{fig/f33.png}
     \caption{足底开关信号与步态检测}
