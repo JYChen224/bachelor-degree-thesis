@@ -48,28 +48,28 @@
 
 % 摘要
 \begin{abstract}
-  外骨骼是一种用来提高人体机能的可穿戴设备，在军事作战、医疗康复等领域具有重要意义。提高人机交互的舒适性与安全性为当前外骨骼领域的研究热点。本文研究对象为一种踝关节式外骨骼。在现有机械结构的基础上，对外骨骼传感系统、力矩控制方法、人在环中优化进行了研究。
+外骨骼是一种用来提高人体机能的可穿戴设备，在军事作战、医疗康复等领域具有重要意义。提高人机交互的舒适性与安全性为当前外骨骼领域的研究热点。本文研究对象为一种踝关节式外骨骼。在现有机械结构的基础上，本文对外骨骼传感系统、力矩控制方法、人在环中优化进行了研究。
 
-  可靠、准确、稳定的人机交互数据对外骨骼至关重要。本文首先搭建了外骨骼的传感系统。针对所研究的踝关节式外骨骼，使用应变片测量外骨骼对人体施加的力矩，采用足底开关和惯性测量单元分析人体步态运动信息，通过表面肌电信号测量肌肉的激活水平。
+本文首先搭建了外骨骼的传感系统。可靠、准确、稳定的人机交互数据对外骨骼至关重要，针对所研究的踝关节式外骨骼，我们使用应变片测量外骨骼对人体施加的力矩，采用足底开关和惯性测量单元分析人体步态运动信息，通过表面肌电信号测量肌肉的激活水平。
 
-  在传感系统的基础上，本文对外骨骼的力矩控制方法进行了研究。力矩控制由上层控制器与底层控制器组成。上层控制器用来产生期望力矩曲线，底层控制器实现对期望力矩曲线的跟踪。对于上层控制器，本文采用基于时间的直接力矩控制，并通过三次函数插值得到期望力矩曲线。针对底层控制器，本文提出了三种控制算法，设计了四种不同组合的控制器，通过实验发现融合三种控制算法的控制器具有较好的力矩跟踪效果。
+在传感系统的基础上，本文对外骨骼的力矩控制方法进行了研究。外骨骼力矩控制由上层控制器与底层控制器组成。上层控制器用来产生期望力矩曲线，底层控制器实现对期望力矩曲线的跟踪。对于上层控制器，本文采用基于时间的直接力矩控制，并通过三次函数插值得到期望力矩曲线。针对底层控制器，本文提出了三种控制算法，设计了四种不同组合的控制器，并通过实验发现融合三种控制算法的控制器具有较好的力矩跟踪效果。
 
-  最后，本文研究了人在环中的参数优化方法。针对最佳助力模式因人而异的问题，本文以穿戴者的肌肉激活水平为目标函数，使用贝叶斯优化外搜寻最佳助力参数。实验表明，外骨骼系统能够在五分钟内寻找到最佳助力参数。在最佳助力参数下，受试者肌肉活动度平均下降12.2\%。
+最后，在所设计的外骨骼控制系统上，本文研究了高层控制器的参数优化方法。针对个体差异问题，本文以穿戴者的肌肉激活水平为目标函数，使用贝叶斯优化搜寻适合穿戴者的控制参数。五次优化实验的结果表明，外骨骼优化系统能够在五分钟内寻找到适合的控制参数。在优化的控制参数下，受试者的肌肉活动度较外骨骼无助力时平均下降12.2\%。
 
 \end{abstract}
 \keywords{外骨骼, 力矩控制, 人在环中优化}
 
 \begin{abstractEn}
-  Exoskeletons are wearable device used to enhance human mobility, which can be used in military, medical rehabilitation and many other fields. Improving the comfort and safety is one key research interest in the field of physical human-robot interaction. We focus on an ankle exoskeleton in this thesis. Based on an existing mechanical design, we studied the sensing system,torque control methods and the human-in-the-loop optimization.
+  Exoskeletons are wearable device used to enhance human mobility, which can be used in military, medical rehabilitation and many other fields. Improving the comfort and safety is one key research interest in the field of physical human-robot interaction. We focus on an ankle exoskeleton in this thesis. Based on an existing mechanical design, we studied the sensing system, torque control methods and the human-in-the-loop optimization.
 
   Accurate and reliable sensor data are critical for exoskeleton control. In this thesis, we developed a sensory system. The torque exerted on exoskeleton was measured by strain gauge, gait cycle stages were detected by a foot swtich, and muscle activation level was measured by electromyography signal.
 
-  Based on the sensory system, we studied torque control methods, which consisted of high- and low-level controllers. The high-controller is used to generate desired torque curve, while the lower controller is used for tracking the desired torque curve. This thesis adopted the direct torque control based on time, and obtained the desired torque curve by cubic spline interpolation.We proposed three control algorithms and designed four different combinations of lower controller. Through experiments, we found that the controller contains all three algorithms has better torque tracking performance.
+  Based on the sensory system, we studied torque control methods, which consisted of high- and low-level controllers. The high-controller is used to generate desired torque curve, while the lower controller is used for tracking the desired torque curve. This thesis adopted the direct torque control based on time, and obtained the desired torque curve by cubic spline interpolation. We proposed three control algorithms and designed four different combinations of lower controller. Through experiments, we found that the controller contains all three algorithms has better torque tracking performance.
 
-  Finally, we studied human-in-the-loop optimization. We found that the optimal assistance mode varied from person to person, which we planed to identify using an optimization method. In the thesis, the target function was set to be human muscle activation level, and Bayesian Optimization was chosen to search the optimal assistance. Five experiment sessions were conducted, in which the assistance mode of the subject was optimized within 5 minutes. With the optimized assistance parameters, the subject's muscle activation level dropped by 12.2\% on average.
+  Finally, we studied the human-in-the-loop optimization method. We found that the optimal assistance mode varied from person to person, which we planed to identify using an optimization method. In the thesis, the target function was set to be human muscle activation level, and Bayesian Optimization was chosen to search the optimal assistance. Five experiment sessions were conducted, in which the assistance mode of the subject was optimized within 5 minutes. With the optimized assistance parameters, the subject's muscle activation level dropped by 12.2\% on average.
 
 \end{abstractEn}
-\keywordsEn{exoskeleton, torque control, human in loop optimization}
+\keywordsEn{exoskeleton; torque control; human in loop optimization}
 
 % 请按自己的论文排版需求，随意修改以下全局设置
 

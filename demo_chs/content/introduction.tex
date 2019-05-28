@@ -1,5 +1,5 @@
 \chapter{绪论}
-\section{研究课题的背景与意义}
+\section{研究背景与意义}
 在自然界，外骨骼是一种能为生物内部组织和器官提供保护的外部结构，如虾、蟹、昆虫等节肢动物体表坚韧的几丁质的骨骼。近些年的科幻电影中，频繁出现一些能够提高人体机能的可穿戴外骨骼，如《钢铁侠》中的Mark战甲、《流浪地球》中救援队的作战装甲等。
 
 实际上，外骨骼机器人并非仅存于幻想，其在人体运动机能提升\cite{p1}和医疗康复\cite{p2}领域的研究已存在超过半个世纪。外骨骼机器人是一种综合传感技术、信号处理、智能控制、人机交互的一体化可穿戴机械装置。随着机器人技术的发展，传统的独立作业机器人，如工业机器人、无人机等，已相对成熟，而具有人机协同功能的机器人成为研究热点。外骨骼机器人作为其典型的应用，正逐渐受到研究人员的重视。近些年随着检测技术、控制理论、人工智能等相关领域的发展，可穿戴设备的研究取得了巨大的进步。
@@ -8,48 +8,37 @@
 
 下肢外骨骼的研究主要聚焦于三个方向：一是为正常人设计、旨在提高人体运动机能的助力设备，其主要应用于军事作战、抢险救灾和工业负重；二是为运动障碍者设计的助力设备，穿戴者可以在外骨骼的辅助下重新获得行走能力；三是可穿戴式康复医疗设备，旨在通过预先设定的重复性动作帮助患者恢复身体机能。本项目研究脚踝式助力外骨骼，通过在运动过程中为穿戴者提供关节力矩辅助，从而减轻穿戴者的运动负担，提高穿戴者的运动机能。
 
-\section{助力外骨骼的研究现状}
+\section{外骨骼机器人的研究现状}
 
-\subsection{助力外骨骼的国外研究现状}
+\subsection{国外研究现状}
 \begin{figure}[!h]
-    \label{fig:sub1}{\includegraphics[width=4.8cm]{fig/f3_Hardiman.jpg}}\quad
-    \label{fig:sub2}{\includegraphics[width=4cm]{fig/f4_Hardiman.jpg}}
+    \label{fig:sub1}{\includegraphics[width=4.2cm]{fig/f3_Hardiman.jpg}}\quad
+    \label{fig:sub2}{\includegraphics[width=3.8cm]{fig/f4_Hardiman.jpg}}
     \caption{通用公司研制的全身型外骨骼机器人Hardiman\cite{p6}}
     \label{fig:subfigs}
 \end{figure}
 
 上世纪60年代晚期，美国通用公司与康奈尔大学的研究人员联合研制了一种全身驱动的外骨骼机器人Hardiman\cite{p6}。其拥有30个自由度，整机重量650Kg，关节由液压驱动，可以放大穿戴者25倍的重量。这项工作最先尝试了外骨骼设计的驱动选型与人机交互等问题，并由此开创了外骨骼机器人的研究。
 \begin{figure}[htb]
-    \includegraphics[width=10cm]{fig/f5_BLEEX.jpg}
-    \caption{伯克利下肢外骨骼机器人BLEEX\cite{p5,p7}}
-    \label{fig:mark}
+    \subfloat[下肢助力外骨骼BLEEX\cite{p5,p7}]{\includegraphics[width=7.9cm]{fig/f5_BLEEX.jpg}}\quad
+    \subfloat[下肢康复外骨骼Ekso\cite{p9}]{\includegraphics[width=7.7cm]{fig/f9_ekso.jpg}}
+    \caption{伯克利大学研发的外骨骼机器人}
+    \label{fig:subfigss}
 \end{figure}
 
-从2000年开始，美国先进国防项目研究署(DARPA)开始了“增强人体机能的外骨骼项目”(EHPA)，计划研制一种外骨骼，用以提高士兵的军事作战能力。其中最为知名是美国加州伯克利大学分校的研究人员研制的BLEEX\cite{p5,p7}(Berkeley Lower Extremity Exoskeleton)，如图1.3所示。BLEEX下肢外骨骼机器人自重50Kg，驱动采取液压驱动，结构上采用拟人的设计方式，每条腿共有7个自由度:髋关节3自由度，膝关节1自由度，踝关节3自由度。穿戴时负载能够通过外BLEEX骨骼传递到地面从而减轻穿戴者的负重感，在负重34Kg时穿戴者的感受仅为2Kg。
-\begin{figure}[!htb]
-    \includegraphics[width=10cm]{fig/f5_HULC.jpg}
-    \caption{洛克希德马丁公司的负重外骨骼HULC\cite{p10}}
-    \label{fig:mark}
-\end{figure}
-
-之后，BLEEX的研究人员设计一套更方便穿戴的下肢外骨骼\cite{p10}，并将其专利卖给了军火商洛克希德马丁公司。此后洛克希德马丁公司推出了一款军用外骨骼HULC(Human Universal Load Carrier)，用于单兵负载的长距离机动，可以使士兵获得11公里每小时的奔跑速度，极限可达到16公里每小时。目前HULC已在美国陆军完成了作战测试。
+从2000年开始，美国先进国防项目研究署(DARPA)开始了“增强人体机能的外骨骼项目”(EHPA)，计划研制一种外骨骼，用以提高士兵的军事作战能力。其中最为知名是美国加州伯克利大学分校的研究人员研制的BLEEX\cite{p5,p7}(Berkeley Lower Extremity Exoskeleton)。BLEEX下肢外骨骼机器人自重50Kg，驱动采取液压驱动，结构上采用拟人的设计方式，每条腿共有7个自由度:髋关节3自由度，膝关节1自由度，踝关节3自由度。穿戴时负载能够通过外BLEEX骨骼传递到地面从而减轻穿戴者的负重感，在负重34Kg时穿戴者的感受仅为2Kg。
 
 在BLEEX项目进行的同时，项目团队也对医用下肢外骨骼进行了研究，并于2010年推出了eLEGS\cite{p9}，后改名为Ekso。Ekso下肢外骨骼系统能够帮助下肢截瘫患者重新获得行走能力，并在长期训练后可以恢复患者的运动。目前Ekso已经获得美国食品和药物管理局的认证，在美国多个医院和医疗机构中用于截瘫患者的康复治疗。
-\begin{figure}[!htb]
-    \includegraphics[width=10cm]{fig/f9_ekso.jpg}
-    \caption{下肢康复外骨骼Ekso\cite{p9}}
-    \label{fig:mark}
-\end{figure}
-
-另一个受到DARPA EHPA支持的项目为XOS\cite{p8}，由Sarcos公司研发，并后来被Raytheon公司收购，如图1.6所示。XOS为全身型的助力外骨骼，关节采用液压驱动，能够帮助穿戴者在负重90Kg的情况下进行长时间的运动。XOS外骨骼的自由度非常多，可以灵活的完成跑、跳，甚至是俯卧撑、拳击、踢足球等运动。但XOS对供电的需求非常大，自身携带的电池仅能运转40分钟,测试时必须拖着一条电缆进行供电，因此并不是完全的可穿戴设备。
 \begin{figure}[htb]
-    \label{fig:sub1}{\includegraphics[width=5.2cm]{fig/f6_XOS.jpg}}\quad
-    \label{fig:sub2}{\includegraphics[width=6cm]{fig/f7_XOS.jpg}}
+    \label{fig:sub1}{\includegraphics[width=6.5cm]{fig/f6_XOS.jpg}}\quad
+    \label{fig:sub2}{\includegraphics[width=7.5cm]{fig/f7_XOS.jpg}}
     \caption{XOS2全身型军用外骨骼\cite{p8}}
     \label{fig:subfigs}
 \end{figure}
 
-除了伯克利系列的下肢外骨骼外，其他科研机构也研究出许多成功的助力外骨骼。麻省理工学院研究了一种下肢负重外骨骼MIT Exoskeleton\cite{p11}，驱动上采用了串联弹性驱动SEA(Series Elastic Actuator)，能够使穿戴者在负重36kg的情况下依然可以顺畅运动。哈佛大学的研究人员针对刚性的外骨骼系统质量大、穿戴不舒适等问题，研制出一种柔性外骨骼\cite{p12}，如图1.7(a)所示。该外骨骼采用鲍登线与身体各部分的锚点相连，电机转动时拉动锚点,从而带动肢体运动。
+另一个受到DARPA EHPA支持的项目为美国雷神公司的XOS\cite{p8}。XOS为全身型的助力外骨骼，关节采用液压驱动，能够帮助穿戴者在负重90Kg的情况下进行长时间的运动。XOS外骨骼的自由度非常多，可以灵活的完成跑、跳，甚至是俯卧撑、拳击、踢足球等运动。但XOS对供电的需求非常大，自身携带的电池仅能运转40分钟,测试时必须拖着一条电缆进行供电，因此并不是完全的可穿戴设备。
+
+除了伯克利系列的下肢外骨骼外，其他科研机构也研究出各具特色的外骨骼。麻省理工学院研究了一种下肢负重外骨骼MIT Exoskeleton\cite{p11}，驱动上采用了串联弹性驱动SEA(Series Elastic Actuator)，能够使穿戴者在负重36kg的情况下依然可以顺畅运动。哈佛大学的研究人员针对刚性的外骨骼系统质量大、穿戴不舒适等问题，研制出一种柔性外骨骼\cite{p12}，采用鲍登线与身体各部分的锚点相连，电机转动时拉动锚点,从而带动肢体运动。日本筑波大学研发了混合助力机器人HAL\cite{p13}(Hybrid Assistive Limb)，用于帮助脊柱损伤患者和中风病人。其采用基于肌电信号的控制方法，可以有效降低肌肉的使用率。
 \begin{figure}[htb]
     \subfloat[哈佛大学的柔性外骨骼Soft-Exosuit\cite{p12}]{\includegraphics[width=7.8cm]{fig/f10_soft.jpg}}\quad
     \subfloat[康复型外骨骼HAL\cite{p13}]{\includegraphics[width=7cm]{fig/f12_hal.jpg}}
@@ -57,9 +46,7 @@
     \label{fig:subfigss}
 \end{figure}
 
-日本的许多大学和研究所也对外骨骼展开了深入的研究，其中较成功的为筑波大学的混合助力机器人HAL\cite{p13}(Hybrid Assistive Limb)。HAL外骨骼的设计目的是帮助脊柱损伤患者和中风病人。不同于以往的外骨骼，HAL外骨骼采用EMG信号进行控制，可以有效降低肌肉的使用率。
-
-\subsection{助力外骨骼的国内研究现状}
+\subsection{国内研究现状}
 
 国内助力外骨骼的研究起步相对较晚，但经过十几年的发展，相关技术已经逐步接近国际水平。
 \begin{figure}[!htb]
@@ -73,7 +60,7 @@
 
 中科院合肥智能所的余勇研究员和葛运建研究员早在2004年就带领团队研究出了下肢助行外骨骼WPAL\cite{p14}( Walking Power Assist Leg)。WPAL能够通过足底压力传感器获取穿戴者的运动负重，并调整其模型和控制器中的参数，从而提高外骨骼的负重效率\cite{p15}。
 
-哈尔滨工业大学的朱延河教授于2013年带领团队研制了一款下肢助力外骨骼HIT-LEX\cite{p18}，如图1.9(b)所示。该外骨骼主要为抢险救灾的救援人员所设计，在机械结构上和BLEEX一样采用拟人化设计，在后背与足底均装有压力传感器用来检测穿戴者的运动意图。经测试，该外骨骼最大负重50kg，续航距离5km，续航时间2h。
+哈尔滨工业大学的朱延河教授于2013年带领团队研制了一款下肢助力外骨骼HIT-LEX\cite{p18}。该外骨骼主要为抢险救灾的救援人员所设计，在机械结构上和BLEEX一样采用拟人化设计，在后背与足底均装有压力传感器用来检测穿戴者的运动意图。经测试，该外骨骼最大负重50kg，续航距离5km，续航时间2h。
 
 成都电子科技大学研发了一种电机驱动的下肢外骨骼机器人，并且设计了分布式的控制系统，由低层感知与上层控制器相结合，使用灵敏度放大的控制方法对系统进行整体控制\cite{p19}。
 
@@ -91,7 +78,7 @@
 
 这些上层的控制策略均在特定环境和条件下有较好的效果，但无论那种控制方法，均需要根据穿戴者的个体特性对控制参数进行调整，以达到最佳的助力效果。
 
-\section{“人在环中”外骨骼优化的研究现状}
+\section{“人在环中”外骨骼优化方法的研究现状}
 
 正如上节所述，由于人类个体之间生理学和神经学的差异，不同个体对同一个助力参数的反应大相径庭\cite{p37}。因此上层控制器的控制参数或助力模式需要根据个体差异进行调整。为了能够充分发挥外骨骼的潜力，控制器需要根据个体差异的不同,自动寻找其适合的助力模式，实时的调整控制策略使得穿戴者的身体机能达到最大值，这种方法被称为“人在环中”的优化方法\cite{p38}。
 \begin{figure}[!htb]
